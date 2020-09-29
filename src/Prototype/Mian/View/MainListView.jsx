@@ -11,14 +11,31 @@ import {
   Card,
 } from "semantic-ui-react";
 import MainItemView from "./MainItemView";
+import "./viewStyle.css";
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return `/posts/test_img_${
+    Math.floor(Math.random() * (max - min + 1)) + min
+  }.jpg`;
+}
 
 const MainListView = () => {
   let test_arr = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
 
-  const exampleItemComponent_1 = test_arr.map((_) => <MainItemView />);
-  const exampleItemComponent_2 = test_arr.map((_) => <MainItemView />);
-  const exampleItemComponent_3 = test_arr.map((_) => <MainItemView />);
-  const exampleItemComponent_4 = test_arr.map((_) => <MainItemView />);
+  const exampleItemComponent_1 = test_arr.map((_, index) => (
+    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+  ));
+  const exampleItemComponent_2 = test_arr.map((_, index) => (
+    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+  ));
+  const exampleItemComponent_3 = test_arr.map((_, index) => (
+    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+  ));
+  const exampleItemComponent_4 = test_arr.map((_, index) => (
+    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+  ));
 
   //리스트를 뿌려줄때 전체 높이를 측정해서 넣어줘야할듯?
 
@@ -34,7 +51,7 @@ const MainListView = () => {
         vertical
       >
         <Grid
-          style={{ width: "80%" }}
+          className="customContainer"
           stackable
           verticalAlign="top"
           columns={4}

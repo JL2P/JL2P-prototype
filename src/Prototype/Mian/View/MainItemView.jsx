@@ -1,34 +1,46 @@
 import React from "react";
 import { Card, Image, Icon } from "semantic-ui-react";
+import MainItemModelView from "./MainItemModelView";
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값도 포함, 최솟값도 포함
-}
+const MainItemView = ({ imageUrl }) => {
+  const [open, setOpen] = React.useState(false);
+  const [selectedImageUrl, setSelectedImageUrl] = React.useState("");
 
-const MainItemView = () => {
+  const onSelected = (imageUrl) => {
+    setSelectedImageUrl(imageUrl);
+    setOpen(true);
+  };
+
+  const onModal = (trigger) => {
+    setOpen(trigger);
+  };
+
   return (
-    <Card style={{ width: "100%" }}>
-      <Image
-        src={`/posts/test_img_${getRandomIntInclusive(1, 100)}.jpg`}
-        wrapped
-        ui={false}
+    <div>
+      <MainItemModelView
+        imageUrl={selectedImageUrl}
+        open={open}
+        onModal={onModal}
       />
-      <Card.Content>
-        <Card.Header>Daniel</Card.Header>
-        <Card.Meta>Joined in 2016</Card.Meta>
-        <Card.Description>
-          Daniel is a comedian living in Nashville.
-        </Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
+      <Card
+        style={{ width: "100%", marginTop: "1em" }}
+        onClick={() => onSelected(imageUrl)}
+        raised
+      >
+        <Image src={imageUrl} wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>Daniel</Card.Header>
+          <Card.Meta>Joined in 2016</Card.Meta>
+          <Card.Description>
+            Daniel is a comedian living in Nashville.
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
           <Icon name="user" />
           10 Friends
-        </a>
-      </Card.Content>
-    </Card>
+        </Card.Content>
+      </Card>
+    </div>
   );
 };
 
