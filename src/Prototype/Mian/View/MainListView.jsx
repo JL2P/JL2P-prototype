@@ -12,29 +12,29 @@ import {
 } from "semantic-ui-react";
 import MainItemView from "./MainItemView";
 import "./viewStyle.css";
+import exampleDataset from "../Data/exampleDataset";
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return `/posts/test_img_${
-    Math.floor(Math.random() * (max - min + 1)) + min
-  }.jpg`;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 const MainListView = () => {
   let test_arr = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
-
+  const dataset = exampleDataset;
+  console.log(dataset.length);
   const exampleItemComponent_1 = test_arr.map((_, index) => (
-    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
   ));
   const exampleItemComponent_2 = test_arr.map((_, index) => (
-    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
   ));
   const exampleItemComponent_3 = test_arr.map((_, index) => (
-    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
   ));
   const exampleItemComponent_4 = test_arr.map((_, index) => (
-    <MainItemView key={index} imageUrl={getRandomIntInclusive(1, 100)} />
+    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
   ));
 
   //리스트를 뿌려줄때 전체 높이를 측정해서 넣어줘야할듯?
