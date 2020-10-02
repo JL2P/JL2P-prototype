@@ -17,7 +17,7 @@ const MainItemView = ({ item }) => {
   return (
     <div>
       <MainItemModelView item={item} open={open} onModal={onModal} />
-      <div className="todo__item">
+      <div className="todo">
         <div className="todo__subitem">
           <Button style={{ padding: "1em", pointerEvents: "none" }}>
             <Icon name="star" color="yellow" />
@@ -36,7 +36,7 @@ const MainItemView = ({ item }) => {
           </Button>
         </div>
         {/* div로 감싼 이유는 시멘틱의Card에서 onClick을 주면 카드가 움직이기 때문! */}
-        <div style={{ cursor: "pointer" }} onClick={() => onSelected()}>
+        <div className="todo__item" onClick={() => onSelected()}>
           <Card style={{ width: "100%", marginTop: "1em" }} raised>
             <Image src={item.imgUrl} wrapped ui={false} />
             <Card.Content>
@@ -55,7 +55,11 @@ const MainItemView = ({ item }) => {
                   <Icon name="user" />
                   {item.name}
                 </div>
-                <div style={{ marginRight: "0.5em" }}>
+                <div
+                  style={{
+                    marginRight: "0.5em",
+                  }}
+                >
                   <Card.Meta>
                     <Label basic color="teal" style={{ marginRight: "0.5em" }}>
                       <Icon
