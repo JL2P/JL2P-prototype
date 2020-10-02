@@ -11,7 +11,7 @@ import {
   Card,
 } from "semantic-ui-react";
 import MainItemView from "./MainItemView";
-import "./viewStyle.css";
+import "./itemListStyle.css";
 import exampleDataset from "../Data/exampleDataset";
 
 function getRandomIntInclusive(min, max) {

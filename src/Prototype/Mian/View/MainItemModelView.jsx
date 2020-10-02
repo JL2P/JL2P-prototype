@@ -1,28 +1,32 @@
 import React from "react";
-import { Modal, Image, Button } from "semantic-ui-react";
+import "./itemModalStyle.css";
+import { Modal, Image, Button, Label, Icon } from "semantic-ui-react";
 
-const MainItemModelView = ({ imageUrl, open, onModal }) => {
+const MainItemModelView = ({ item, open, onModal }) => {
   return (
     <Modal
       onClose={() => onModal(false)}
       onOpen={() => onModal(true)}
       open={open}
     >
-      <Modal.Header>Todo Title</Modal.Header>
+      <Modal.Header>{item.title}</Modal.Header>
       <Modal.Content image>
-        <Image size="medium" src={imageUrl} wrapped />
-        <Modal.Description>
-          <p>Todo Description</p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum totam{" "}
-          </p>
-          <p>
-            nemo sunt accusamus nisi dolore doloremque! Nostrum quas veniam sint{" "}
-          </p>
-          <p>
-            numquam, recusandae alias modi facilis vel? Hic quae quod maxime!
-          </p>
-        </Modal.Description>
+        <Image size="medium" src={item.imgUrl} />
+        <div className="modal__description">
+          <Modal.Description>
+            <h3>Description</h3>
+            <p>{item.description}</p>
+          </Modal.Description>
+          <div className="modal__description__info">
+            <Label as="a" basic image>
+              <img src="https://react.semantic-ui.com/images/avatar/small/elliot.jpg" />
+              {item.writer}
+            </Label>
+            <Label basic>
+              <Icon name="star" color="yellow" /> {item.rating}
+            </Label>
+          </div>
+        </div>
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => onModal(false)}>Cancel</Button>
