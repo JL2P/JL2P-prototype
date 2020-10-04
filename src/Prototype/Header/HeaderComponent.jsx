@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as="h1"
-      content="Imagine-a-Company"
+      content="Doily Life"
       inverted
       style={{
         fontSize: mobile ? "2em" : "4em",
@@ -44,7 +44,7 @@ const HomepageHeading = ({ mobile }) => (
     />
     <Header
       as="h2"
-      content="Do whatever you want when you want to."
+      content="Put your plan into action."
       inverted
       style={{
         fontSize: mobile ? "1.5em" : "1.7em",
@@ -86,6 +86,7 @@ class DesktopContainer extends Component {
             textAlign="center"
             // style={{ minHeight: 700, padding: "1em 0em" }}
             style={{ minHeight: 600, padding: "1em 0em" }}
+            // style={{ minHeight: 80, padding: "1em 0em" }}
             vertical
           >
             <Menu
@@ -211,8 +212,8 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const HeaderComponent = ({ mainPageComponoent }) => {
-  return <ResponsiveContainer>{mainPageComponoent}</ResponsiveContainer>;
+const HeaderComponent = ({ pageComponoent }) => {
+  return <ResponsiveContainer>{pageComponoent}</ResponsiveContainer>;
 };
 
 export default HeaderComponent;

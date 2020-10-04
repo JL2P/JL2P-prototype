@@ -10,33 +10,14 @@ import {
   Segment,
   Card,
 } from "semantic-ui-react";
-import MainItemView from "./MainItemView";
 import "./itemListStyle.css";
-import exampleDataset from "../Data/exampleDataset";
 
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const MainListView = () => {
-  let test_arr = ["*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*"];
-  const dataset = exampleDataset;
-  console.log(dataset.length);
-  const exampleItemComponent_1 = test_arr.map((_, index) => (
-    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
-  ));
-  const exampleItemComponent_2 = test_arr.map((_, index) => (
-    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
-  ));
-  const exampleItemComponent_3 = test_arr.map((_, index) => (
-    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
-  ));
-  const exampleItemComponent_4 = test_arr.map((_, index) => (
-    <MainItemView key={index} item={dataset[getRandomIntInclusive(0, 99)]} />
-  ));
-
+const MainListView = ({
+  exampleItemComponent_1,
+  exampleItemComponent_2,
+  exampleItemComponent_3,
+  exampleItemComponent_4,
+}) => {
   //리스트를 뿌려줄때 전체 높이를 측정해서 넣어줘야할듯?
 
   return (
@@ -73,7 +54,7 @@ const MainListView = () => {
         </Grid>
       </Segment>
 
-      <Segment style={{ padding: "8em 0em" }} vertical>
+      {/* <Segment style={{ padding: "8em 0em" }} vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
             <Grid.Column width={8}>
@@ -196,7 +177,7 @@ const MainListView = () => {
             </Grid.Row>
           </Grid>
         </Container>
-      </Segment>
+      </Segment> */}
     </>
   );
 };

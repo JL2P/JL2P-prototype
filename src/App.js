@@ -1,11 +1,11 @@
 import React from "react";
 import HeaderComponent from "./Prototype/Header/HeaderComponent";
-import MainPage from "./Prototype/Mian/MainPage";
+import MainPage from "./Prototype/MainPages/MainPage";
 
 function App() {
   return (
     <>
-      <HeaderComponent mainPageComponoent={<MainPage />} />
+      <HeaderComponent pageComponoent={<MainPage />} />
     </>
   );
 }
