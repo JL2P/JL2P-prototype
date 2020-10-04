@@ -1,6 +1,12 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { Header, Main, Account, SignIn, SignUp } from "./Prototype/index";
+import {
+  Header,
+  Main,
+  Account,
+  SignIn,
+  SignUp,
+} from "./Prototype/PrototypeRoutes";
 
 function App() {
   return (

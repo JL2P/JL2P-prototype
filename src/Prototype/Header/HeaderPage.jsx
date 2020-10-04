@@ -212,8 +212,8 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 };
 
-const HeaderComponent = ({ pageComponoent }) => {
+const HeaderPage = ({ pageComponoent }) => {
   return <ResponsiveContainer>{pageComponoent}</ResponsiveContainer>;
 };
 
-export default HeaderComponent;
+export default HeaderPage;
