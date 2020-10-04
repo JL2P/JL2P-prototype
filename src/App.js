@@ -1,11 +1,18 @@
 import React from "react";
-import HeaderComponent from "./Prototype/Header/HeaderComponent";
-import MainPage from "./Prototype/MainPages/MainPage";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { Header, Main, Account, SignIn, SignUp } from "./Prototype/index";
 
 function App() {
   return (
     <>
-      <HeaderComponent pageComponoent={<MainPage />} />
+      <Header />
+      <Route exact path="/" component={Main} />
+      <Switch>
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/account" component={Account} />
+        <Redirect path="*" to="/" />
+      </Switch>
     </>
   );
 }
